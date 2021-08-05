@@ -1,7 +1,7 @@
+const path = require('path');
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
-const crypto = require('crypto');
 const server = require("http").createServer();
 const io = require("socket.io")(server, {
     transports: ["websocket", "polling"]
@@ -21,6 +21,11 @@ app.use(express.json());
 
 const INVALID_CREDENTIALS = "Login Credentials Invalid";
 const ROOM_NAME_TAKEN = "Room name exists";
+
+app.use(express.static('client/build'));
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+})
 
 // Login
 app.post("/api/login", (req, res)=>{
@@ -444,6 +449,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFi
         Room.deleteMany({}, ()=> console.log("Cleared Rooms"))
         console.log('Connected to MongoDB')
         app.listen(port, ()=>console.log(`Server started on port ${port}`))
-        server.listen(8080);
+        server.listen(port+1);
     })
     .catch((err) => console.log(`Error: ${err}`));

@@ -450,6 +450,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFi
         Room.deleteMany({}, ()=> console.log("Cleared Rooms"))
         console.log('Connected to MongoDB')
         app.listen(port, ()=>console.log(`Server started on port ${port}`))
-        server.listen(port+1);
+        server.listen(5001);
     })
     .catch((err) => console.log(`Error: ${err}`));

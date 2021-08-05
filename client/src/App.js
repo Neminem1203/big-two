@@ -8,7 +8,7 @@ import Login from "./components/login.js";
 import Error from "./components/errors.js";
 import Game from "./components/game.js";
 
-const socket = io(`http://localhost:${process.env.PORT+1}`, {
+const socket = io(`http://localhost:5001`, {
   transports: ["websocket", "polling"]
 });
 

@@ -1,0 +1,280 @@
+body{
+  background-color: darkgray;
+  overflow: hidden;
+}
+
+input{
+  padding: 5px;
+  border-radius: 5px;
+}
+
+label{
+  font-size: 25px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.hidden{
+  display: none !important; 
+}
+
+.App{
+  height: 100vh;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+#login-box{
+  height: 50vh;
+  width: 50vh;
+  border: 1px solid black;
+  background-color: gray;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-input{
+  margin-bottom: 5vh;
+}
+
+#error-window{
+  position: absolute;
+  top: 2vh;
+  width: 30vw;
+  background-color: white;
+  border: 1px black solid;
+}
+
+#error-header{
+  display: flex;
+  justify-content:center;
+}
+
+
+#error-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.errors{
+  margin: 8px;
+}
+
+.room{
+  cursor: pointer;
+  background-color: gray;
+  padding: 2vh;
+  margin: 2vh;
+}
+
+.room:hover{
+  background-color: white;
+  color: gray;
+}
+
+.lobby-pages{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lobby-button{
+  height: 100%;
+  background-color: white;
+  color: black;
+  padding: 1vh 1vw;
+  margin: 1vw;
+}
+
+.lobby-button:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+#lobby-body{
+  height: 100%;
+}
+
+#new-room-button{
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin-top: 2vh;
+}
+
+#new-room-button:hover{
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+#text_and_refresh{
+  display: flex;
+  justify-content: center;
+  margin-top: 1vh;
+}
+
+#refresh{
+  width: 30px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+#leave-room{
+  background-color: black;
+  color: white;
+  padding: 10px 40px;
+}
+
+#leave-room:hover{
+  cursor: pointer;
+  background-color: red;
+  color: lightgray;
+}
+
+#game-header{
+  height: 3vh;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 1vw;
+  margin: auto;
+}
+#game-header > div{
+  text-align: center;
+}
+
+#game-body{
+  background-color: darkgreen;
+  height: 93vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh;
+}
+
+#middle-board{
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  padding: 5vw;
+}
+
+#lobby-header{
+  width: 15vw;
+  min-width: 220px;
+}
+
+#lobby{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vh;
+  height: 90vh;
+  width: 90vw;
+}
+
+#start-game-btn{
+  z-index: 2;
+  background-color: black;
+  color: white;
+  text-align:center;
+  vertical-align:middle;
+  cursor: pointer;
+  min-width:120px;
+  min-height: 60px;
+  vertical-align: middle;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#start-game-btn:hover{
+  background-color: gray;
+}
+
+#current-hand{
+  display: flex;
+  align-items: center;
+}
+
+
+#opposite-hand{
+  transform:rotate(180deg);
+}
+
+
+.card.active{
+  padding-top: 0 !important;
+  padding-bottom: 10px;
+  background-color: black;
+}
+
+.hand-button{
+  cursor: pointer;
+  background-color: white;
+  color: green;
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  height: 30px;
+  margin-left: 15px;
+  border-radius: 20px;
+}
+
+.hand-button:hover{
+  background-color:green;
+  color: white;
+}
+
+#left-hand{
+  transform:rotate(90deg);
+}
+
+
+
+#opposite-hand{
+  transform: rotate(180deg);
+}
+
+#opposite-hand > div.name-plate{
+  transform:rotate(180deg);
+}
+
+#right-hand{
+  transform: rotate(270deg);
+}
+
+.turn-indicator{
+  position:absolute;
+  transition: transform 1.3s;
+  left: calc(50vw - 91px);
+  top: 54vh;
+}
+
+#players-area{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#player-buttons{
+  display: flex;
+}

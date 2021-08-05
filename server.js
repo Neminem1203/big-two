@@ -1,8 +1,14 @@
 const path = require('path');
 const mongoose = require('mongoose');
 const express = require('express');
+// const server = require("http").createServer();
 const app = express();
-const server = require("http").createServer();
+app.set('port', (process.env.PORT || 5000));
+
+var server = app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
+
 const io = require("socket.io")(server, {
     transports: ["websocket", "polling"]
 });
@@ -442,13 +448,10 @@ io.on("connection", client =>{
 })
 
 const dbURI = process.env.MONGODBURI || require("./keys.js").mongoURI;
-const port = process.env.PORT || 5000;
 // mongoose.set();
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then((result) => {
         Room.deleteMany({}, ()=> console.log("Cleared Rooms"))
         console.log('Connected to MongoDB')
-        app.listen(port, ()=>console.log(`Server started on port ${port}`))
-        server.listen(port+1);
     })
     .catch((err) => console.log(`Error: ${err}`));

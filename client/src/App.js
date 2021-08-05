@@ -8,7 +8,16 @@ import Login from "./components/login.js";
 import Error from "./components/errors.js";
 import Game from "./components/game.js";
 
-const socket = io(`http://localhost:8080`, {
+let socket_url;
+if (process.env.NODE_ENV === 'production') {
+  socket_url = "localhost"
+} else {
+  socket_url = "localhost:5000"
+}
+
+
+
+const socket = io(`${socket_url}`, {
   transports: ["websocket", "polling"]
 });
 

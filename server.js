@@ -22,6 +22,11 @@ app.use(express.json());
 const INVALID_CREDENTIALS = "Login Credentials Invalid";
 const ROOM_NAME_TAKEN = "Room name exists";
 
+
+app.get("/", (req, res)=>{
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+})
+
 // Login
 app.post("/api/login", (req, res)=>{
     let hash = req.body.password;

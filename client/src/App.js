@@ -10,7 +10,7 @@ import Game from "./components/game.js";
 
 let socket_url;
 if (process.env.NODE_ENV === 'production') {
-  socket_url = "localhost"
+  socket_url = "https://big-two-mint.herokuapp.com/"
 } else {
   socket_url = "localhost:5000"
 }
